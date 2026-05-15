@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>退換貨 · 沐研萃 Muyancui</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1);font-weight:300}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+.narrow{max-width:760px;margin:0 auto;padding:0 32px}
+header{position:sticky;top:0;z-index:10;background:rgba(252,251,248,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:36px}
+.logo .zh{font-family:var(--font-serif);font-weight:400;font-size:20px;color:var(--fg-1);letter-spacing:.12em;line-height:1}
+.logo .en{font-size:9px;letter-spacing:.2em;color:var(--fg-3);margin-top:4px;font-family:var(--font-latin)}
+nav{display:flex;gap:6px}
+nav a{padding:8px 16px;font-size:14px;color:var(--fg-2);text-decoration:none;letter-spacing:.06em}
+nav a.active{color:var(--fg-1);font-weight:500;border-bottom:1px solid var(--sage-500)}
+.grow{flex:1}
+.icon-btn{width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+.intro{padding:120px 0 56px;text-align:center}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sea-500);margin-bottom:24px}
+h1.title{font-family:var(--font-serif);font-weight:300;font-size:48px;line-height:1.4;letter-spacing:.08em;margin:0 0 24px}
+.lede{font-size:15px;color:var(--fg-2);line-height:2;font-weight:300;max-width:560px;margin:0 auto;letter-spacing:.04em}
+.body{padding:48px 0 120px}
+section.body h2{font-family:var(--font-serif);font-weight:300;font-size:28px;letter-spacing:.08em;margin:48px 0 20px;color:var(--fg-1);padding-bottom:14px;border-bottom:1px solid var(--border)}
+section.body h3{font-family:var(--font-serif);font-weight:400;font-size:18px;letter-spacing:.06em;margin:28px 0 10px}
+section.body p, section.body li{font-size:14px;line-height:2.1;color:var(--fg-2);font-weight:300;letter-spacing:.02em}
+section.body ul{padding-left:20px;margin:8px 0}
+section.body li{margin:4px 0}
+.note{padding:20px 24px;background:var(--sea-50);border-left:3px solid var(--sea-500);border-radius:2px;margin:24px 0;font-size:13px;line-height:1.9;color:var(--fg-2)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 28px;border-radius:999px;font-size:14px;cursor:pointer;border:1px solid transparent;text-decoration:none;letter-spacing:.1em;transition:all .26s var(--ease-out);margin-top:18px}
+.btn-p{background:var(--sage-500);color:#fff}
+.btn-p:hover{background:var(--sage-600)}
+.field{display:block;width:100%;padding:14px 18px;border:1px solid var(--border);border-radius:4px;font-size:14px;font-family:inherit;background:#fff;margin:10px 0 18px}
+.field:focus{outline:none;border-color:var(--sage-500)}
+label{font-size:12px;letter-spacing:.12em;color:var(--fg-3);text-transform:uppercase}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-info{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;padding-top:48px;border-top:1px solid var(--border)}
+.ci{text-align:center}
+.ci .lbl{font-size:11px;letter-spacing:.2em;color:var(--fg-3);text-transform:uppercase;margin-bottom:8px}
+.ci .val{font-family:var(--font-serif);font-size:18px;color:var(--fg-1);letter-spacing:.04em}
+footer{background:var(--n-900);color:var(--n-300);padding:80px 0 40px}
+.foot{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.foot h4{font-size:11px;letter-spacing:.2em;color:#fff;margin:0 0 18px;font-weight:500;text-transform:uppercase}
+.foot a{display:block;font-size:13px;color:var(--n-300);text-decoration:none;padding:5px 0;letter-spacing:.04em}
+.foot-note{font-size:11px;color:var(--n-400);line-height:1.9;max-width:340px;margin-top:14px;letter-spacing:.04em}
+.foot-bar{max-width:1200px;margin:48px auto 0;padding:24px 32px 0;border-top:1px solid var(--n-700);display:flex;justify-content:space-between;font-size:11px;color:var(--n-400);letter-spacing:.08em}
+</style>
+</head>
+<body>
+<header>
+<div class="nav">
+<a class="logo" href="index.html"><img src="./assets/mark.png" alt=""><div><div class="zh">沐研萃</div><div class="en">MUYANCUI</div></div></a>
+<nav>
+<a href="index.html">首頁</a>
+<a href="shop.html">全部商品</a>
+<a href="care.html">照護指南</a>
+<a href="about.html">品牌故事</a>
+<a href="faq.html">常見問題</a>
+</nav>
+<div class="grow"></div>
+<button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+<button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+<button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+</div>
+</header>
+<section class="intro">
+<div class="narrow">
+<div class="eyebrow">RETURNS</div>
+<h1 class="title">退換貨流程<br>與條件說明。</h1>
+<p class="lede">食品為個人衛生用品，退換貨有特殊規範。請仔細閱讀以下說明。</p>
+</div>
+</section>
+<section class="body">
+<div class="narrow">
+<div class="note">🛡️ 依消保法規定，食品為個人衛生用品，無 7 天鑑賞期。但若收到商品有瑕疵或包裝破損，我們提供完整退換貨保障。</div>
+<h2>可退換貨情況</h2>
+<h3>包裝破損 / 商品異常</h3>
+<p>收到商品時發現包裝破損、商品變質、或數量不符，請於 <b>24 小時內</b>聯絡客服，並提供照片佐證。我們將安排免費換貨或全額退費。</p>
+<h3>商品有效期不足</h3>
+<p>若收到商品距有效期不滿 6 個月，可選擇退貨或部分折扣補償。</p>
+<h3>運送錯誤</h3>
+<p>若我們出錯品項或數量，請於 7 日內聯絡客服，由我們負擔來回運費協助處理。</p>
+<h2>不可退換貨情況</h2>
+<ul>
+<li>已開封、開蓋、或已使用之商品</li>
+<li>個人主觀因素（口感不適合、家人不想喝）</li>
+<li>收到超過 7 日未提出問題</li>
+<li>無法提供原始包裝與發票</li>
+</ul>
+<h2>退換貨流程</h2>
+<h3>Step 1 · 聯絡客服</h3>
+<p>透過電話、Email 或 LINE 聯絡客服，說明訂單編號與問題，並附上商品照片。</p>
+<h3>Step 2 · 客服確認</h3>
+<p>客服將於 1 個工作日內回覆並安排退換貨流程，提供退貨地址與單號。</p>
+<h3>Step 3 · 寄回商品</h3>
+<p>請以原始包裝寄回（保留發票），我們收到後 3 個工作日內處理退款或補寄。</p>
+<h3>Step 4 · 退款完成</h3>
+<p>退款將以原付款方式退回，信用卡約 7–14 個工作日，ATM/超商繳費約 5–7 個工作日。</p>
+<a class="btn btn-p" href="contact.html">聯絡客服處理</a>
+</div>
+</section>
+<footer>
+<div class="foot">
+<div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+<img src="./assets/mark.png" style="width:40px;filter:brightness(0) invert(1)">
+<div>
+<div style="font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;letter-spacing:.12em">沐研萃</div>
+<div style="font-size:9px;letter-spacing:.2em;color:var(--n-400);margin-top:4px">MUYANCUI · CLINICAL NUTRITION</div>
+</div>
+</div>
+<div style="font-size:13px;color:var(--n-300);line-height:1.9;letter-spacing:.04em">昱文食品有限公司<br>雲林縣麥寮鄉 · Made in Taiwan</div>
+<div class="foot-note">※ 本網站所有商品皆為營養補充食品，不具療效宣稱。使用前請諮詢醫師或營養師。</div>
+</div>
+<div><h4>商品</h4><a href="shop.html">均衡配方</a><a href="shop.html">糖尿病專用</a><a href="shop.html">腎臟配方</a><a href="shop.html">高蛋白配方</a><a href="shop.html">纖維加強</a><a href="shop.html">營養加強</a></div>
+<div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a></div>
+<div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
+</div>
+<div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.0</div></div>
+</footer>
+</body>
+</html>

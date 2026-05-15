@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>全部商品 · 沐研萃 Muyancui</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1);font-weight:300}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .narrow{max-width:760px;margin:0 auto;padding:0 32px}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(252,251,248,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  .nav{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;gap:32px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo img{height:36px}
+  .logo .zh{font-family:var(--font-serif);font-weight:400;font-size:20px;color:var(--fg-1);letter-spacing:.12em;line-height:1}
+  .logo .en{font-size:9px;letter-spacing:.2em;color:var(--fg-3);margin-top:4px;font-family:var(--font-latin)}
+  nav{display:flex;gap:6px}
+  nav a{padding:8px 16px;font-size:14px;color:var(--fg-2);text-decoration:none;letter-spacing:.06em}
+  nav a.active{color:var(--fg-1);font-weight:500;border-bottom:1px solid var(--sage-500)}
+  .grow{flex:1}
+  .icon-btn{width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+
+  .intro{padding:120px 0 56px;text-align:center}
+  .eyebrow{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sea-500);margin-bottom:24px}
+  h1.title{font-family:var(--font-serif);font-weight:300;font-size:48px;line-height:1.4;letter-spacing:.08em;margin:0 0 24px}
+  .lede{font-size:15px;color:var(--fg-2);line-height:2;font-weight:300;max-width:560px;margin:0 auto;letter-spacing:.04em}
+
+  /* Filter bar */
+  .filters{padding:0 0 48px;border-bottom:1px solid var(--border)}
+  .filt-g{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+  .pill{padding:10px 22px;border-radius:999px;font-size:13px;letter-spacing:.06em;border:1px solid var(--border);background:transparent;color:var(--fg-2);cursor:pointer;transition:all .26s var(--ease-out)}
+  .pill.active, .pill:hover{background:var(--sage-700);color:#fff;border-color:var(--sage-700)}
+
+  /* Grid */
+  .grid{padding:64px 0 120px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+  .card{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit}
+  .thumb{aspect-ratio:1;background:var(--bg-soft);border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform .4s var(--ease-out)}
+  .card:hover .thumb{transform:translateY(-4px)}
+  .thumb img{max-width:88%;max-height:88%;object-fit:contain}
+  .c-no{font-family:var(--font-latin);font-size:11px;letter-spacing:.2em;color:var(--sea-500);text-transform:uppercase;margin-top:8px}
+  .c-name{font-family:var(--font-serif);font-weight:400;font-size:22px;letter-spacing:.08em;margin:4px 0}
+  .c-desc{font-size:13px;color:var(--fg-2);line-height:1.9;margin:0;font-weight:300}
+  .c-bar{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+  .price{font-family:var(--font-latin);font-size:18px;letter-spacing:.04em;color:var(--fg-1)}
+  .price small{font-size:11px;color:var(--fg-3);letter-spacing:.12em;margin-left:4px}
+  .add{font-size:11px;letter-spacing:.18em;color:var(--fg-2);text-transform:uppercase;border-bottom:1px solid var(--border-strong);padding-bottom:2px}
+
+  .legal{padding:0 0 96px;text-align:center;font-size:11px;color:var(--fg-4);letter-spacing:.12em}
+
+  footer{background:var(--n-900);color:var(--n-300);padding:80px 0 40px}
+  .foot{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+  .foot h4{font-size:11px;letter-spacing:.2em;color:#fff;margin:0 0 18px;font-weight:500;text-transform:uppercase}
+  .foot a{display:block;font-size:13px;color:var(--n-300);text-decoration:none;padding:5px 0;letter-spacing:.04em}
+  .foot-note{font-size:11px;color:var(--n-400);line-height:1.9;max-width:340px;margin-top:14px;letter-spacing:.04em}
+  .foot-bar{max-width:1200px;margin:48px auto 0;padding:24px 32px 0;border-top:1px solid var(--n-700);display:flex;justify-content:space-between;font-size:11px;color:var(--n-400);letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">
+      <img src="./assets/mark.png" alt="">
+      <div><div class="zh">沐研萃</div><div class="en">MUYANCUI</div></div>
+    </a>
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="shop.html" class="active">全部商品</a>
+      <a href="care.html">照護指南</a>
+      <a href="about.html">品牌故事</a>
+      <a href="faq.html">常見問題</a>
+    </nav>
+    <div class="grow"></div>
+    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="narrow">
+    <div class="eyebrow">ALL FORMULAS · 全部商品</div>
+    <h1 class="title">六支配方，<br>對應不同照護需求。</h1>
+    <p class="lede">由臨床營養師審核設計。每一支皆通過 SGS 第三方檢驗，無防腐劑添加。</p>
+  </div>
+</section>
+
+<section class="filters">
+  <div class="wrap">
+    <div class="filt-g">
+      <button class="pill active" data-filter="all">全部</button>
+      <button class="pill" data-filter="daily">日常照護</button>
+      <button class="pill" data-filter="disease">疾病專用</button>
+      <button class="pill" data-filter="recovery">術後復原</button>
+      <button class="pill" data-filter="bedridden">長期臥床</button>
+    </div>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="wrap">
+    <div class="cards">
+      <a class="card" data-tags="daily" href="#">
+        <div class="thumb"><img src="./assets/products/my-standard.png" alt=""></div>
+        <div class="c-no">01 · STANDARD</div>
+        <div class="c-name">均衡配方</div>
+        <p class="c-desc">日常基礎營養，適用大多數居家照護情境。</p>
+        <div class="c-bar"><div class="price">NT$ 1,280<small>/ 6 包</small></div><div class="add">加入購物車</div></div>
+      </a>
+      <a class="card" data-tags="disease" href="#">
+        <div class="thumb"><img src="./assets/products/my-diabetic.png" alt=""></div>
+        <div class="c-no">02 · DIABETIC</div>
+        <div class="c-name">糖尿病專用</div>
+        <p class="c-desc">GI 35 低升糖設計，搭配 8g 膳食纖維。</p>
+        <div class="c-bar"><div class="price">NT$ 1,480<small>/ 6 包</small></div><div class="add">加入購物車</div></div>
+      </a>
+      <a class="card" data-tags="disease bedridden" href="#">
+        <div class="thumb"><img src="./assets/products/my-renal.png" alt=""></div>
+        <div class="c-no">03 · RENAL</div>
+        <div class="c-name">腎臟配方</div>
+        <p class="c-desc">低磷低鉀，2.0 kcal/ml 高熱量密度。</p>
+        <div class="c-bar"><div class="price">NT$ 1,680<small>/ 6 包</small></div><div class="add">加入購物車</div></div>
+      </a>
+      <a class="card" data-tags="recovery daily" href="#">
+        <div class="thumb"><img src="./assets/products/my-protein.png" alt=""></div>
+        <div class="c-no">04 · HIGH PROTEIN</div>
+        <div class="c-name">高蛋白配方</div>
+        <p class="c-desc">每包 20g 優質蛋白，BCAA 強化。</p>
+        <div class="c-bar"><div class="price">NT$ 1,580<small>/ 6 包</small></div><div class="add">加入購物車</div></div>
+      </a>
+      <a class="card" data-tags="daily bedridden" href="#">
+        <div class="thumb"><img src="./assets/products/my-fiber.png" alt=""></div>
+        <div class="c-no">05 · FIBER PLUS</div>
+        <div class="c-name">纖維加強</div>
+        <p class="c-desc">12g 膳食纖維加 FOS 益生質，腸道順暢。</p>
+        <div class="c-bar"><div class="price">NT$ 1,380<small>/ 6 包</small></div><div class="add">加入購物車</div></div>
+      </a>
+      <a class="card" data-tags="recovery bedridden disease" href="#">
+        <div class="thumb"><img src="./assets/products/my-fortified.png" alt=""></div>
+        <div class="c-no">06 · FORTIFIED</div>
+        <div class="c-name">營養加強</div>
+        <p class="c-desc">1.5 kcal/ml 濃縮配方，小體積高營養。</p>
+        <div class="c-bar"><div class="price">NT$ 1,780<small>/ 6 包</small></div><div class="add">加入購物車</div></div>
+      </a>
+    </div>
+    <div id="empty-state" style="display:none;text-align:center;padding:80px 0;font-size:14px;color:var(--fg-3);letter-spacing:.08em">此分類目前無對應商品</div>
+  </div>
+</section>
+
+<div class="legal">※ 本商品為營養補充食品，非藥品。使用前請諮詢醫師或營養師。</div>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="./assets/mark.png" style="width:40px;filter:brightness(0) invert(1)">
+        <div>
+          <div style="font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;letter-spacing:.12em">沐研萃</div>
+          <div style="font-size:9px;letter-spacing:.2em;color:var(--n-400);margin-top:4px">MUYANCUI · CLINICAL NUTRITION</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--n-300);line-height:1.9;letter-spacing:.04em">昱文食品有限公司<br>雲林縣麥寮鄉 · Made in Taiwan</div>
+      <div class="foot-note">※ 本網站所有商品皆為營養補充食品，不具療效宣稱。使用前請諮詢醫師或營養師。</div>
+    </div>
+    <div><h4>商品</h4><a href="shop.html">均衡配方</a><a href="shop.html">糖尿病專用</a><a href="shop.html">腎臟配方</a><a href="shop.html">高蛋白配方</a><a href="shop.html">纖維加強</a><a href="shop.html">營養加強</a></div>
+    <div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a></div>
+    <div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
+  </div>
+  <div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.0</div></div>
+</footer>
+
+
+<script>
+(function(){
+  const pills = document.querySelectorAll('.pill[data-filter]');
+  const cards = document.querySelectorAll('.card[data-tags]');
+  const empty = document.getElementById('empty-state');
+  pills.forEach(p => p.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    const f = p.dataset.filter;
+    let visible = 0;
+    cards.forEach(c => {
+      const show = f === 'all' || c.dataset.tags.includes(f);
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
+  }));
+  // 加入購物車 click feedback
+  document.querySelectorAll('.add').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const card = e.target.closest('.card');
+      const name = card.querySelector('.c-name').textContent;
+      btn.textContent = '✓ 已加入';
+      btn.style.color = 'var(--sage-700)';
+      setTimeout(() => { btn.textContent = '加入購物車'; btn.style.color = ''; }, 1600);
+    });
+  });
+})();
+</script>
+</body>
+</html>

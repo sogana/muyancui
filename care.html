@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>照護指南 · 沐研萃 Muyancui</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1);font-weight:300}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+  .narrow{max-width:760px;margin:0 auto;padding:0 32px}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(252,251,248,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  .nav{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;gap:32px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo img{height:36px}
+  .logo .zh{font-family:var(--font-serif);font-weight:400;font-size:20px;color:var(--fg-1);letter-spacing:.12em;line-height:1}
+  .logo .en{font-size:9px;letter-spacing:.2em;color:var(--fg-3);margin-top:4px;font-family:var(--font-latin)}
+  nav{display:flex;gap:6px}
+  nav a{padding:8px 16px;font-size:14px;color:var(--fg-2);text-decoration:none;letter-spacing:.06em}
+  nav a.active{color:var(--fg-1);font-weight:500;border-bottom:1px solid var(--sage-500)}
+  .grow{flex:1}
+  .icon-btn{width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+
+  .intro{padding:140px 0 80px;text-align:center}
+  .eyebrow{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sea-500);margin-bottom:28px}
+  h1.title{font-family:var(--font-serif);font-weight:300;font-size:52px;line-height:1.4;letter-spacing:.08em;margin:0 0 28px}
+  .lede{font-size:16px;color:var(--fg-2);line-height:2.2;font-weight:300;max-width:560px;margin:0 auto;letter-spacing:.04em}
+
+  /* Topic grid — 6 主題 */
+  .topics{padding:80px 0 120px}
+  .topics-g{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .topic{background:#fff;border:1px solid var(--border);border-radius:4px;padding:36px 28px;cursor:pointer;transition:all .26s var(--ease-out);display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit}
+  .topic:hover{border-color:var(--sage-400);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .topic .ic{width:40px;height:40px;color:var(--sage-600)}
+  .topic .cat{font-family:var(--font-latin);font-size:11px;letter-spacing:.2em;color:var(--sea-500);text-transform:uppercase}
+  .topic h3{font-family:var(--font-serif);font-weight:400;font-size:20px;letter-spacing:.08em;margin:0;line-height:1.5}
+  .topic p{font-size:13px;line-height:1.9;color:var(--fg-2);margin:0;font-weight:300}
+  .topic .more{font-size:11px;letter-spacing:.18em;color:var(--fg-3);margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
+
+  /* Featured article */
+  .featured{padding:120px 0;background:var(--bg-soft)}
+  .featured-g{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+  .feat-img{aspect-ratio:4/3;background:var(--n-100);border-radius:4px;display:flex;align-items:flex-end;padding:24px;color:var(--fg-4);font-size:11px;letter-spacing:.16em}
+  .featured h2{font-family:var(--font-serif);font-weight:300;font-size:32px;line-height:1.6;letter-spacing:.06em;margin:18px 0 24px}
+  .featured p{font-size:14px;line-height:2;color:var(--fg-2);font-weight:300;margin:0 0 18px}
+  .read{font-size:12px;letter-spacing:.16em;color:var(--sage-600);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;margin-top:8px;text-decoration:none}
+
+  /* Tube feeding step-by-step */
+  .howto{padding:120px 0}
+  .sec-head{text-align:center;margin-bottom:64px}
+  .sec-head h2{font-family:var(--font-serif);font-weight:300;font-size:36px;letter-spacing:.08em;margin:14px 0 14px}
+  .sec-head .sub{font-size:14px;color:var(--fg-3);letter-spacing:.04em}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 64px}
+  .stp{display:flex;gap:24px}
+  .stp .n{font-family:var(--font-serif);font-weight:300;font-size:48px;color:var(--sage-300);line-height:1;letter-spacing:.04em;flex:0 0 60px}
+  .stp h4{font-family:var(--font-serif);font-weight:400;font-size:20px;letter-spacing:.06em;margin:0 0 12px}
+  .stp p{font-size:13px;line-height:2;color:var(--fg-2);margin:0;font-weight:300}
+
+  /* Reminder */
+  .reminder{padding:64px 0;background:var(--sea-50);border-top:1px solid var(--sea-100);border-bottom:1px solid var(--sea-100)}
+  .rem-g{display:flex;gap:24px;align-items:flex-start;max-width:900px;margin:0 auto;padding:0 32px}
+  .rem-g .ic{flex:0 0 32px;color:var(--sea-500)}
+  .rem-g h4{font-family:var(--font-serif);font-weight:400;font-size:18px;letter-spacing:.06em;margin:0 0 10px}
+  .rem-g p{font-size:13px;line-height:2;color:var(--fg-2);margin:0;font-weight:300}
+
+  /* CTA */
+  .cta{padding:120px 0;text-align:center}
+  .cta h2{font-family:var(--font-serif);font-weight:300;font-size:36px;letter-spacing:.08em;margin:0 0 24px}
+  .cta p{font-size:14px;color:var(--fg-2);margin:0 0 36px;letter-spacing:.04em}
+  .btn{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 32px;border-radius:999px;font-size:14px;cursor:pointer;border:1px solid transparent;text-decoration:none;letter-spacing:.1em;transition:all .26s var(--ease-out)}
+  .btn-p{background:var(--sage-500);color:#fff}
+  .btn-p:hover{background:var(--sage-600);transform:translateY(-1px)}
+
+  footer{background:var(--n-900);color:var(--n-300);padding:80px 0 40px}
+  .foot{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+  .foot h4{font-size:11px;letter-spacing:.2em;color:#fff;margin:0 0 18px;font-weight:500;text-transform:uppercase}
+  .foot a{display:block;font-size:13px;color:var(--n-300);text-decoration:none;padding:5px 0;letter-spacing:.04em}
+  .foot-note{font-size:11px;color:var(--n-400);line-height:1.9;max-width:340px;margin-top:14px;letter-spacing:.04em}
+  .foot-bar{max-width:1200px;margin:48px auto 0;padding:24px 32px 0;border-top:1px solid var(--n-700);display:flex;justify-content:space-between;font-size:11px;color:var(--n-400);letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">
+      <img src="./assets/mark.png" alt="">
+      <div><div class="zh">沐研萃</div><div class="en">MUYANCUI</div></div>
+    </a>
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="shop.html">全部商品</a>
+      <a href="care.html" class="active">照護指南</a>
+      <a href="about.html">品牌故事</a>
+      <a href="faq.html">常見問題</a>
+    </nav>
+    <div class="grow"></div>
+    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="narrow">
+    <div class="eyebrow">CARE GUIDE · 照護指南</div>
+    <h1 class="title">照顧家人的<br>每一個常見問題。</h1>
+    <p class="lede">由執業營養師與護理師共同編寫的居家照護指南。從配方挑選、灌食操作、到日常照顧細節，陪您一步一步上手。</p>
+  </div>
+</section>
+
+<section class="topics">
+  <div class="wrap">
+    <div class="topics-g">
+      <a class="topic" href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H5a2 2 0 00-2 2v3a2 2 0 002 2h4M9 11V7a4 4 0 014-4h0a4 4 0 014 4v4M9 11h10a2 2 0 012 2v3a2 2 0 01-2 2h-4"/></svg>
+        <div class="cat">FORMULA · 配方挑選</div>
+        <h3>如何為家人選對配方</h3>
+        <p>糖尿病、腎臟病、術後、長期臥床——不同需求對應不同配方。本文整理六種情境的選擇指引。</p>
+        <div class="more">閱讀指南 →</div>
+      </a>
+      <a class="topic" href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M8 6l4-4 4 4M5 14a7 7 0 0014 0v-4H5z"/></svg>
+        <div class="cat">TUBE FEEDING · 管灌</div>
+        <h3>鼻胃管灌食的正確步驟</h3>
+        <p>從手部清潔、確認管路位置、到灌食速度與餐後照護，照護家屬最常忽略的 8 個細節。</p>
+        <div class="more">閱讀指南 →</div>
+      </a>
+      <a class="topic" href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div class="cat">SCHEDULE · 餵食時間</div>
+        <h3>每日灌食的時間規劃</h3>
+        <p>一日 5–6 餐還是 4 餐？睡前要不要灌？營養師建議的時間表與調整原則。</p>
+        <div class="more">閱讀指南 →</div>
+      </a>
+      <a class="topic" href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div class="cat">SAFETY · 食安</div>
+        <h3>開封後的保存與衛生</h3>
+        <p>未喝完的配方能放多久？冷藏可保多久？灌食器具清潔頻率與消毒方式。</p>
+        <div class="more">閱讀指南 →</div>
+      </a>
+      <a class="topic" href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        <div class="cat">SYMPTOMS · 不適處理</div>
+        <h3>腹瀉、便秘、脹氣怎麼辦</h3>
+        <p>灌食後常見的三種腸胃不適，從速度、溫度、配方類型著手調整的具體方法。</p>
+        <div class="more">閱讀指南 →</div>
+      </a>
+      <a class="topic" href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div class="cat">CAREGIVER · 照顧者</div>
+        <h3>家屬的喘息與情緒照顧</h3>
+        <p>照顧者也是病人。如何在長期照護中維持自己的健康與情緒穩定。</p>
+        <div class="more">閱讀指南 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="featured">
+  <div class="wrap featured-g">
+    <div class="feat-img" style="background-image:url(./assets/photos/care-tube-feeding.png);background-size:cover;background-position:center"></div>
+    <div>
+      <div class="eyebrow">FEATURED · 本月精選</div>
+      <h2>初次接觸鼻胃管？<br>家屬的第一週指南。</h2>
+      <p>家人從醫院出院、第一次回到自己的廚房灌食，往往是家屬最焦慮的時刻。本指南由臨床營養師與居家護理師共同撰寫，整理初期一週最重要的觀察重點與調整方式。</p>
+      <p>包含：每餐的最佳速度、嗆咳的處理、皮膚與口腔照護、與醫療團隊溝通的關鍵問題清單。</p>
+      <a class="read" href="#">閱讀完整指南 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">STEP BY STEP · 操作步驟</div>
+      <h2>居家管灌食的 6 個關鍵步驟</h2>
+      <div class="sub">每一步都不複雜，但每一步都重要。</div>
+    </div>
+    <div class="steps">
+      <div class="stp"><div class="n">01</div><div><h4>手部清潔</h4><p>以肥皂與流動清水洗手 20 秒，再用酒精消毒。所有器具皆需先洗淨。</p></div></div>
+      <div class="stp"><div class="n">02</div><div><h4>確認管路</h4><p>每次灌食前抽取胃液檢查管路位置；若懷疑滑脫，請暫停並聯絡護理師。</p></div></div>
+      <div class="stp"><div class="n">03</div><div><h4>調整體位</h4><p>協助家人採半坐臥（30–45 度），避免平躺造成嗆咳或胃食道逆流。</p></div></div>
+      <div class="stp"><div class="n">04</div><div><h4>溫和灌食</h4><p>以重力滴注或灌食袋緩慢進行，每 200ml 約 15–20 分鐘。切勿加壓快速推入。</p></div></div>
+      <div class="stp"><div class="n">05</div><div><h4>沖洗管路</h4><p>每次灌食後以 30ml 溫開水沖洗，避免配方殘留造成阻塞或細菌滋生。</p></div></div>
+      <div class="stp"><div class="n">06</div><div><h4>餐後觀察</h4><p>維持半坐臥 30 分鐘以上，觀察是否有腹脹、嘔吐、咳嗽等不適並紀錄。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reminder">
+  <div class="rem-g">
+    <div class="ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+    <div>
+      <h4>本指南僅供日常照護參考</h4>
+      <p>所有照護操作建議皆為通用原則，實際執行請依您家人的醫療團隊指示為準。如遇到嗆咳、發燒、嚴重腹瀉、管路異常等狀況，請立即聯繫主治醫師、營養師或居家護理師。</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="narrow">
+    <h2>還是不確定？<br>讓營養師陪您聊聊。</h2>
+    <p>免費營養師諮詢專線，週一至週五 9:00–18:00。</p>
+    <a class="btn btn-p" href="#">預約諮詢</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="./assets/mark.png" style="width:40px;filter:brightness(0) invert(1)">
+        <div>
+          <div style="font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;letter-spacing:.12em">沐研萃</div>
+          <div style="font-size:9px;letter-spacing:.2em;color:var(--n-400);margin-top:4px">MUYANCUI · CLINICAL NUTRITION</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--n-300);line-height:1.9;letter-spacing:.04em">昱文食品有限公司<br>雲林縣麥寮鄉 · Made in Taiwan</div>
+      <div class="foot-note">※ 本網站所有商品皆為營養補充食品，不具療效宣稱。使用前請諮詢醫師或營養師。</div>
+    </div>
+    <div><h4>商品</h4><a href="shop.html">均衡配方</a><a href="shop.html">糖尿病專用</a><a href="shop.html">腎臟配方</a><a href="shop.html">高蛋白配方</a><a href="shop.html">纖維加強</a><a href="shop.html">營養加強</a></div>
+    <div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a></div>
+    <div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
+  </div>
+  <div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.0</div></div>
+</footer>
+
+</body>
+</html>
