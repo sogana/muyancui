@@ -108,6 +108,95 @@
   .foot a{display:block;font-size:13px;color:var(--n-300);text-decoration:none;padding:5px 0;letter-spacing:.04em}
   .foot-note{font-size:11px;color:var(--n-400);line-height:1.9;max-width:340px;margin-top:14px;letter-spacing:.04em}
   .foot-bar{max-width:1200px;margin:48px auto 0;padding:24px 32px 0;border-top:1px solid var(--n-700);display:flex;justify-content:space-between;font-size:11px;color:var(--n-400);letter-spacing:.08em}
+
+/* Mobile footer compact layout */
+@media (max-width:700px){
+  .foot{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px 12px!important;padding:0 24px!important}
+  .foot>div:first-child{grid-column:1/-1}
+  .foot h4{margin-bottom:12px}
+  .foot a{font-size:12px;padding:4px 0}
+  .foot-bar{display:block!important;padding:20px 24px 0!important;line-height:1.8}
+}
+
+/* Mobile layout */
+@media (max-width:900px){
+  .wrap,.narrow{padding:0 20px}
+  .nav{padding:14px 20px;gap:14px}
+  header nav{display:none}
+  .logo img{height:32px}
+  .logo .zh{font-size:18px}
+  .icon-btn{width:36px;height:36px}
+
+  .intro{padding:88px 0 56px}
+  .eyebrow{font-size:10px;letter-spacing:.2em;margin-bottom:18px}
+  h1.title{font-size:36px;line-height:1.45;letter-spacing:.04em;margin-bottom:22px}
+  .lede{font-size:14px;line-height:1.95;max-width:none}
+
+  .origin,.promise,.process,.cert,.facility,.cta{padding:72px 0}
+  .origin-g{grid-template-columns:1fr;gap:36px}
+  .origin-img{aspect-ratio:4/3;min-height:240px;order:1}
+  .origin-g>div:last-child{order:2}
+  .origin h2{font-size:26px;line-height:1.55;letter-spacing:.04em;margin:16px 0 22px}
+  .origin p{font-size:14px;line-height:2;margin-bottom:16px}
+  .origin .sig{margin-top:26px}
+
+  .sec-head{margin-bottom:40px}
+  .sec-head h2{font-size:30px;line-height:1.45;letter-spacing:.04em}
+  .sec-head .sub{font-size:13px;line-height:1.8}
+
+  .promise-g{grid-template-columns:1fr;gap:28px}
+  .pi{gap:16px}
+  .pi .num{flex-basis:30px}
+  .pi h3{font-size:20px;margin-bottom:10px}
+  .pi p{font-size:13px;line-height:1.9}
+
+  .timeline{grid-template-columns:1fr;gap:24px;margin-top:42px}
+  .timeline::before{left:18px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .step{text-align:left;display:grid;grid-template-columns:36px 1fr;gap:0 18px;align-items:start}
+  .step .dot{grid-row:1 / span 2}
+  .step h4{margin:4px 0 6px;font-size:17px}
+  .step p{font-size:13px;line-height:1.8}
+
+  .numbers{padding:56px 0}
+  .num-g{grid-template-columns:repeat(2,1fr);gap:32px 18px}
+  .num-i .big{font-size:42px}
+  .num-i .lbl{font-size:10px;letter-spacing:.12em;line-height:1.6}
+
+  .cert-g{grid-template-columns:repeat(2,1fr);gap:16px;margin-top:36px}
+  .cert-i{padding:24px 14px}
+  .cert-i .badge{width:48px;height:48px;margin-bottom:14px}
+  .cert-i b{font-size:16px}
+
+  .fac-g{grid-template-columns:1fr;gap:34px;margin-top:40px}
+  .fac-i .img{aspect-ratio:4/3}
+
+  .quote{padding:72px 0}
+  .quote .qmark{font-size:44px}
+  .quote p{font-size:22px;line-height:1.8;letter-spacing:.04em}
+
+  .cta h2{font-size:30px;line-height:1.45;letter-spacing:.04em}
+  .cta p{line-height:1.8;margin-bottom:28px}
+  .cta .btn{width:100%;justify-content:center;margin:0 0 12px;height:48px}
+  .cta .btn-s{margin-left:0}
+}
+
+@media (max-width:420px){
+  .wrap,.narrow{padding:0 18px}
+  h1.title{font-size:32px}
+  .num-g,.cert-g{grid-template-columns:1fr}
+}
+
+/* Mobile hamburger menu */
+.menu-toggle{display:none}
+@media (max-width:900px){
+  header .nav{position:relative;gap:10px;flex-wrap:wrap;align-items:center}
+  .menu-toggle{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+  .menu-toggle:hover{background:var(--bg-soft);color:var(--fg-1)}
+  header nav{display:none!important;order:10;flex:0 0 100%;width:100%;grid-template-columns:1fr;gap:0;padding:10px 0 4px;border-top:1px solid var(--border);margin-top:4px}
+  header .nav.menu-open nav{display:grid!important}
+  header nav a{display:block;padding:12px 18px;font-size:14px;white-space:nowrap;border-bottom:1px solid var(--border)}
+  header nav a.active{border-bottom-color:var(--sage-500)}
+}
 </style>
 </head>
 <body>
@@ -125,13 +214,13 @@
       <a href="index.html">首頁</a>
       <a href="shop.html">全部商品</a>
       <a href="care.html">照護指南</a>
-      <a href="#" class="active">品牌故事</a>
-      <a href="faq.html">常見問題</a>
+      <a href="about.html" class="active">品牌故事</a>
+      <a href="factory.html">工廠環境</a><a href="contact.html">聯絡我們</a><a href="faq.html">常見問題</a>
     </nav>
-    <div class="grow"></div>
-    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
-    <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+    <div class="grow"></div><button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button>
+    <a class="icon-btn" href="search.html" aria-label="搜尋"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
+    <a class="icon-btn" href="member.html" aria-label="會員"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+    <a class="icon-btn" href="cart.html" aria-label="購物車"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></a>
   </div>
 </header>
 
@@ -259,8 +348,8 @@
     <h2>從一支配方，<br>開始您的照顧旅程。</h2>
     <p>所有商品為營養補充食品，使用前請諮詢醫師或營養師。</p>
     <div>
-      <a class="btn btn-p" href="index.html">查看全部商品</a>
-      <a class="btn btn-s" href="#">聯絡營養師</a>
+      <a class="btn btn-p" href="shop.html">查看全部商品</a>
+      <a class="btn btn-s" href="contact.html">聯絡營養師</a>
     </div>
   </div>
 </section>
@@ -279,11 +368,14 @@
       <div class="foot-note">※ 本網站所有商品皆為營養補充食品，不具療效宣稱。使用前請諮詢醫師或營養師。</div>
     </div>
     <div><h4>商品</h4><a href="product-standard.html">均衡配方</a><a href="product-diabetic.html">糖尿病專用</a><a href="product-renal.html">腎臟配方</a><a href="product-protein.html">高蛋白配方</a><a href="product-fiber.html">纖維加強</a><a href="product-fortified.html">營養加強</a></div>
-    <div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a></div>
-    <div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
+    <div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a><a href="factory.html">工廠環境</a></div>
+    <div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="repay.html">補付款</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
   </div>
-  <div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.0</div></div>
+  <div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.1</div></div>
 </footer>
 
+<script>
+document.querySelectorAll('.menu-toggle').forEach(btn=>{btn.addEventListener('click',()=>{const nav=btn.closest('.nav');const open=nav.classList.toggle('menu-open');btn.setAttribute('aria-expanded',open?'true':'false');});});
+</script>
 </body>
 </html>
