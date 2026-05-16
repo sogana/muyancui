@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#f7f5ee"/>
+  <rect x="96" y="72" width="708" height="556" rx="10" fill="#fff" stroke="#e0dcce"/>
+  <rect x="136" y="112" width="250" height="476" rx="8" fill="#eef3ef" stroke="#b8ccbd"/>
+  <text x="168" y="164" font-family="Noto Serif TC, serif" font-size="40" fill="#14120e" letter-spacing="6">沐研萃</text>
+  <text x="170" y="198" font-family="DM Sans, sans-serif" font-size="15" fill="#7a7565" letter-spacing="4">MUYANCUI</text>
+  <rect x="170" y="236" width="178" height="30" rx="15" fill="#3f5649"/>
+  <text x="188" y="257" font-family="Noto Sans TC, sans-serif" font-size="15" fill="#fff" letter-spacing="2">臨床營養配方</text>
+  <rect x="170" y="308" width="176" height="176" rx="88" fill="#fff" opacity=".72"/>
+  <path d="M230 418c52 12 88-22 88-68-38 40-74 24-88 68z" fill="#6b8e7f"/>
+  <path d="M250 374c-20-52 4-90 56-106-12 48 12 76-56 106z" fill="#2f6a82" opacity=".84"/>
+  <text x="172" y="540" font-family="Noto Sans TC, sans-serif" font-size="18" fill="#3a362b">每包 200ml · 無防腐劑</text>
+  <text x="438" y="140" font-family="Noto Serif TC, serif" font-size="30" fill="#14120e" letter-spacing="3">營養標示與食用資訊</text>
+  <text x="438" y="177" font-family="Noto Sans TC, sans-serif" font-size="16" fill="#7a7565">包裝背面示意，用於商品頁展示排版。</text>
+  <g font-family="Noto Sans TC, sans-serif" font-size="18" fill="#3a362b">
+    <rect x="438" y="218" width="296" height="42" fill="#f7f5ee"/>
+    <text x="458" y="246">項目</text><text x="650" y="246" text-anchor="end">每包</text>
+    <line x1="438" y1="260" x2="734" y2="260" stroke="#e0dcce"/>
+    <text x="458" y="300">熱量</text><text x="650" y="300" text-anchor="end">250 kcal</text>
+    <line x1="438" y1="318" x2="734" y2="318" stroke="#e0dcce"/>
+    <text x="458" y="358">蛋白質</text><text x="650" y="358" text-anchor="end">12 g</text>
+    <line x1="438" y1="376" x2="734" y2="376" stroke="#e0dcce"/>
+    <text x="458" y="416">脂肪</text><text x="650" y="416" text-anchor="end">8.5 g</text>
+    <line x1="438" y1="434" x2="734" y2="434" stroke="#e0dcce"/>
+    <text x="458" y="474">碳水化合物</text><text x="650" y="474" text-anchor="end">32 g</text>
+    <line x1="438" y1="492" x2="734" y2="492" stroke="#e0dcce"/>
+    <text x="458" y="532">膳食纖維</text><text x="650" y="532" text-anchor="end">3 g</text>
+  </g>
+  <rect x="438" y="560" width="296" height="36" rx="18" fill="#eaf1f5"/>
+  <text x="586" y="583" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="15" fill="#2f6a82">SGS 報告 QR Code 區塊</text>
+</svg>

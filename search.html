@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>站內搜尋 · 沐研萃 Muyancui</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1);font-weight:300}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+.narrow{max-width:760px;margin:0 auto;padding:0 32px}
+header{position:sticky;top:0;z-index:10;background:rgba(252,251,248,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:36px}.logo .zh{font-family:var(--font-serif);font-weight:400;font-size:20px;color:var(--fg-1);letter-spacing:.12em;line-height:1}.logo .en{font-size:9px;letter-spacing:.2em;color:var(--fg-3);margin-top:4px;font-family:var(--font-latin)}
+nav{display:flex;gap:6px}nav a{padding:8px 16px;font-size:14px;color:var(--fg-2);text-decoration:none;letter-spacing:.06em}nav a:hover{color:var(--fg-1)}
+.grow{flex:1}.icon-btn{width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2);text-decoration:none}.icon-btn:hover{background:var(--bg-soft);color:var(--fg-1)}
+.intro{padding:120px 0 48px;text-align:center}.eyebrow{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sea-500);margin-bottom:24px}
+h1.title{font-family:var(--font-serif);font-weight:300;font-size:48px;line-height:1.4;letter-spacing:.08em;margin:0 0 24px}.lede{font-size:15px;color:var(--fg-2);line-height:2;font-weight:300;max-width:560px;margin:0 auto;letter-spacing:.04em}
+.body{padding:32px 0 120px}.search-box{display:flex;gap:12px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:12px;margin-bottom:32px}
+.search-box input{flex:1;border:0;padding:12px 14px;font-size:16px;font-family:inherit;background:transparent;outline:0;color:var(--fg-1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font-size:14px;cursor:pointer;border:1px solid transparent;text-decoration:none;letter-spacing:.1em;transition:all .26s var(--ease-out);font-family:inherit}
+.btn-p{background:var(--sage-500);color:#fff}.btn-p:hover{background:var(--sage-600)}
+.meta{font-size:13px;color:var(--fg-3);letter-spacing:.08em;margin:0 0 24px}.results{display:grid;gap:16px}
+.result{display:block;background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px;text-decoration:none;color:inherit;transition:all .26s var(--ease-out)}
+.result:hover{border-color:var(--sage-500);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.result .cat{font-family:var(--font-latin);font-size:11px;letter-spacing:.18em;color:var(--sea-500);text-transform:uppercase;margin-bottom:8px}
+.result h2{font-family:var(--font-serif);font-weight:400;font-size:22px;letter-spacing:.06em;margin:0 0 10px}.result p{font-size:14px;line-height:1.9;color:var(--fg-2);margin:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 0}.chip{border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--fg-2);font-family:inherit;font-size:13px;padding:9px 18px;cursor:pointer}.chip:hover{background:var(--sage-700);border-color:var(--sage-700);color:#fff}
+.empty{display:none;text-align:center;padding:64px 0;color:var(--fg-3);font-size:14px;letter-spacing:.08em}
+footer{background:var(--n-900);color:var(--n-300);padding:80px 0 40px}.foot{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}.foot h4{font-size:11px;letter-spacing:.2em;color:#fff;margin:0 0 18px;font-weight:500;text-transform:uppercase}.foot a{display:block;font-size:13px;color:var(--n-300);text-decoration:none;padding:5px 0;letter-spacing:.04em}.foot-note{font-size:11px;color:var(--n-400);line-height:1.9;max-width:340px;margin-top:14px;letter-spacing:.04em}.foot-bar{max-width:1200px;margin:48px auto 0;padding:24px 32px 0;border-top:1px solid var(--n-700);display:flex;justify-content:space-between;font-size:11px;color:var(--n-400);letter-spacing:.08em}
+@media(max-width:800px){
+  .wrap,.narrow{padding:0 20px}
+  .nav{padding:14px 20px;gap:14px}
+  nav{display:none}
+  .logo img{height:32px}
+  .logo .zh{font-size:18px}
+  .icon-btn{width:36px;height:36px}
+  .search-box{flex-direction:column;padding:10px}
+  .search-box input{font-size:15px}
+  .foot{grid-template-columns:1fr}
+  h1.title{font-size:36px;line-height:1.45}
+  .intro{padding:88px 0 40px}
+  .lede{font-size:14px;line-height:1.9}
+  .body{padding:28px 0 72px}
+  .result{padding:22px 20px}
+  .result h2{font-size:20px;line-height:1.5}
+  .chip{font-size:12px;padding:8px 14px}
+}
+
+/* Mobile footer compact layout */
+@media (max-width:700px){
+  .foot{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px 12px!important;padding:0 24px!important}
+  .foot>div:first-child{grid-column:1/-1}
+  .foot h4{margin-bottom:12px}
+  .foot a{font-size:12px;padding:4px 0}
+  .foot-bar{display:block!important;padding:20px 24px 0!important;line-height:1.8}
+}
+
+/* Mobile hamburger menu */
+.menu-toggle{display:none}
+@media (max-width:900px){
+  header .nav{position:relative;gap:10px;flex-wrap:wrap;align-items:center}
+  .menu-toggle{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+  .menu-toggle:hover{background:var(--bg-soft);color:var(--fg-1)}
+  header nav{display:none!important;order:10;flex:0 0 100%;width:100%;grid-template-columns:1fr;gap:0;padding:10px 0 4px;border-top:1px solid var(--border);margin-top:4px}
+  header .nav.menu-open nav{display:grid!important}
+  header nav a{display:block;padding:12px 18px;font-size:14px;white-space:nowrap;border-bottom:1px solid var(--border)}
+  header nav a.active{border-bottom-color:var(--sage-500)}
+}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<a class="logo" href="index.html"><img src="./assets/mark.png" alt=""><div><div class="zh">沐研萃</div><div class="en">MUYANCUI</div></div></a>
+<nav><a href="index.html">首頁</a><a href="shop.html">全部商品</a><a href="care.html">照護指南</a><a href="about.html">品牌故事</a><a href="factory.html">工廠環境</a><a href="contact.html">聯絡我們</a><a href="faq.html">常見問題</a></nav>
+<div class="grow"></div><button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button>
+<a class="icon-btn" href="search.html" aria-label="搜尋"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
+<a class="icon-btn" href="member.html" aria-label="會員"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+<a class="icon-btn" href="cart.html" aria-label="購物車"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></a>
+</div></header>
+
+<section class="intro"><div class="narrow">
+<div class="eyebrow">SEARCH · 站內搜尋</div>
+<h1 class="title">快速找到商品、<br>照護文章與客服資訊。</h1>
+<p class="lede">輸入配方名稱、疾病需求、管灌、配送或付款等關鍵字，即可搜尋目前網站內容。</p>
+</div></section>
+
+<section class="body"><div class="wrap">
+<form class="search-box" id="search-form">
+<input id="q" type="search" placeholder="搜尋：糖尿病、腎臟、管灌、補付款、配送..." autocomplete="off" autofocus>
+<button class="btn btn-p" type="submit">搜尋</button>
+</form>
+<div class="chips">
+<button class="chip" data-q="糖尿病">糖尿病</button><button class="chip" data-q="腎臟">腎臟</button><button class="chip" data-q="管灌">管灌</button><button class="chip" data-q="檢驗報告">檢驗報告</button><button class="chip" data-q="補付款">補付款</button>
+</div>
+<p class="meta" id="meta"></p>
+<div class="results" id="results"></div>
+<div class="empty" id="empty">找不到符合的內容，請換個關鍵字或聯絡客服。</div>
+</div></section>
+
+<footer><div class="foot">
+<div><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="./assets/mark.png" style="width:40px;filter:brightness(0) invert(1)" alt=""><div><div style="font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;letter-spacing:.12em">沐研萃</div><div style="font-size:9px;letter-spacing:.2em;color:var(--n-400);margin-top:4px">MUYANCUI · CLINICAL NUTRITION</div></div></div><div style="font-size:13px;color:var(--n-300);line-height:1.9;letter-spacing:.04em">昱文食品有限公司<br>雲林縣麥寮鄉 · Made in Taiwan</div><div class="foot-note">※ 本網站所有商品皆為營養補充食品，不具療效宣稱。使用前請諮詢醫師或營養師。</div></div>
+<div><h4>商品</h4><a href="product-standard.html">均衡配方</a><a href="product-diabetic.html">糖尿病專用</a><a href="product-renal.html">腎臟配方</a><a href="product-protein.html">高蛋白配方</a><a href="product-fiber.html">纖維加強</a><a href="product-fortified.html">營養加強</a></div>
+<div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a><a href="factory.html">工廠環境</a></div>
+<div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="repay.html">補付款</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
+</div><div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.1</div></div></footer>
+
+<script>
+const data=[
+{cat:'商品',title:'均衡配方',url:'product-standard.html',text:'日常照護 基礎營養 250 kcal 蛋白質 長輩 術後'},
+{cat:'商品',title:'糖尿病專用',url:'product-diabetic.html',text:'GI 35 低升糖 膳食纖維 血糖 糖友'},
+{cat:'商品',title:'腎臟配方',url:'product-renal.html',text:'低磷 低鉀 高熱量 透析 腎臟病'},
+{cat:'商品',title:'高蛋白配方',url:'product-protein.html',text:'術後 復原 傷口 BCAA 肌肉 蛋白質'},
+{cat:'商品',title:'纖維加強',url:'product-fiber.html',text:'FOS 益生質 便秘 腸道 膳食纖維'},
+{cat:'商品',title:'營養加強',url:'product-fortified.html',text:'小體積 高營養 1.5 kcal ml 臥床 食量小'},
+{cat:'商品',title:'全部商品',url:'shop.html',text:'灌食配方 管灌用具 灌食袋 空針 加溫器 灌食架'},
+{cat:'照護',title:'照護指南',url:'care.html',text:'鼻胃管 管灌 灌食 餵食時間 保存 衛生 腹瀉 便秘'},
+{cat:'照護',title:'營養師專欄',url:'column.html',text:'文章 管灌技巧 疾病營養 照護心法'},
+{cat:'品牌',title:'品牌故事',url:'about.html',text:'創辦人 工廠 SGS 檢驗 食安 製程 認證'},
+{cat:'品牌',title:'工廠環境介紹',url:'factory.html',text:'工廠環境 雲林麥寮 自家工廠 製程 分區 第三方檢驗 冷鏈配送'},
+{cat:'客服',title:'常見問題',url:'faq.html',text:'產品 配方 灌食 訂購 付款 運送 退換'},
+{cat:'客服',title:'檢驗報告',url:'lab-reports.html',text:'SGS 第三方檢驗 報告 批號 食安'},
+{cat:'客服',title:'訂單查詢',url:'order-status.html',text:'訂單 狀態 出貨 物流 追蹤'},
+{cat:'客服',title:'補付款',url:'repay.html',text:'付款失敗 重新付款 補款 訂單編號 電話 人工核對'},
+{cat:'客服',title:'配送說明',url:'shipping.html',text:'宅配 冷鏈 運費 免運 黑貓 配送'},
+{cat:'客服',title:'退換貨',url:'returns.html',text:'退貨 換貨 流程 條件 售後'},
+{cat:'客服',title:'聯絡我們',url:'contact.html',text:'客服 營養師 Email LINE 電話 諮詢'}
+];
+const q=document.getElementById('q'),results=document.getElementById('results'),meta=document.getElementById('meta'),empty=document.getElementById('empty');
+function render(term=''){
+  const t=term.trim().toLowerCase();
+  const rows=data.filter(x=>!t||`${x.cat} ${x.title} ${x.text}`.toLowerCase().includes(t));
+  results.innerHTML=rows.map(x=>`<a class="result" href="${x.url}"><div class="cat">${x.cat}</div><h2>${x.title}</h2><p>${x.text}</p></a>`).join('');
+  meta.textContent=t?`找到 ${rows.length} 筆與「${term}」相關的內容`:`共 ${rows.length} 筆可搜尋內容`;
+  empty.style.display=rows.length?'none':'block';
+}
+document.getElementById('search-form').addEventListener('submit',e=>{e.preventDefault();render(q.value)});
+q.addEventListener('input',()=>render(q.value));
+document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{q.value=b.dataset.q;render(q.value);q.focus()}));
+const params=new URLSearchParams(location.search);if(params.get('q'))q.value=params.get('q');render(q.value);
+</script>
+<script>
+document.querySelectorAll('.menu-toggle').forEach(btn=>{btn.addEventListener('click',()=>{const nav=btn.closest('.nav');const open=nav.classList.toggle('menu-open');btn.setAttribute('aria-expanded',open?'true':'false');});});
+</script>
+</body>
+</html>

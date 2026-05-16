@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#fcfbf8"/>
+  <rect x="78" y="86" width="744" height="498" rx="8" fill="#f7f5ee" stroke="#e0dcce"/>
+  <ellipse cx="560" cy="505" rx="184" ry="32" fill="#c6c1ae" opacity=".24"/>
+  <path d="M468 268h210l-34 242H502z" fill="#fff" stroke="#c6c1ae" stroke-width="3"/>
+  <path d="M486 342h174l-22 144H508z" fill="#d7e3da"/>
+  <ellipse cx="573" cy="268" rx="106" ry="24" fill="#fff" stroke="#c6c1ae" stroke-width="3"/>
+  <ellipse cx="573" cy="342" rx="86" ry="18" fill="#95b19d" opacity=".56"/>
+  <path d="M230 186c80 8 135 40 164 96" fill="none" stroke="#6b8e7f" stroke-width="26" stroke-linecap="round"/>
+  <path d="M214 150h170c22 0 40 18 40 40v180c0 22-18 40-40 40H214z" fill="#fff" stroke="#d7e3da" stroke-width="3"/>
+  <rect x="238" y="184" width="116" height="26" rx="13" fill="#3f5649"/>
+  <text x="296" y="203" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="14" fill="#fff" letter-spacing="2">均衡配方</text>
+  <text x="244" y="254" font-family="Noto Serif TC, serif" font-size="36" fill="#14120e" letter-spacing="5">沐研萃</text>
+  <text x="246" y="288" font-family="DM Sans, sans-serif" font-size="14" fill="#7a7565" letter-spacing="4">MUYANCUI</text>
+  <text x="120" y="626" font-family="Noto Serif TC, serif" font-size="30" fill="#14120e" letter-spacing="3">可直接飲用，也可隔水加溫</text>
+  <text x="120" y="660" font-family="Noto Sans TC, sans-serif" font-size="17" fill="#7a7565">使用前搖勻，開封後請冷藏並於 24 小時內飲用完畢。</text>
+</svg>

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>檢驗報告 · 沐研萃 Muyancui</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1);font-weight:300}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.narrow{max-width:880px;margin:0 auto;padding:0 32px}
+header{position:sticky;top:0;z-index:10;background:rgba(252,251,248,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:36px}
+.logo .zh{font-family:var(--font-serif);font-weight:400;font-size:20px;color:var(--fg-1);letter-spacing:.12em;line-height:1}
+.logo .en{font-size:9px;letter-spacing:.2em;color:var(--fg-3);margin-top:4px;font-family:var(--font-latin)}
+nav{display:flex;gap:6px}
+nav a{padding:8px 16px;font-size:14px;color:var(--fg-2);text-decoration:none;letter-spacing:.06em}
+nav a.active{color:var(--fg-1);font-weight:500;border-bottom:1px solid var(--sage-500)}
+.grow{flex:1}
+.icon-btn{width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+.intro{padding:120px 0 56px;text-align:center}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sea-500);margin-bottom:24px}
+h1.title{font-family:var(--font-serif);font-weight:300;font-size:48px;line-height:1.4;letter-spacing:.08em;margin:0 0 24px}
+.lede{font-size:15px;color:var(--fg-2);line-height:2;font-weight:300;max-width:560px;margin:0 auto;letter-spacing:.04em}
+.body{padding:48px 0 120px}
+footer{background:var(--n-900);color:var(--n-300);padding:80px 0 40px}
+.foot{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.foot h4{font-size:11px;letter-spacing:.2em;color:#fff;margin:0 0 18px;font-weight:500;text-transform:uppercase}
+.foot a{display:block;font-size:13px;color:var(--n-300);text-decoration:none;padding:5px 0;letter-spacing:.04em}
+.foot-note{font-size:11px;color:var(--n-400);line-height:1.9;max-width:340px;margin-top:14px;letter-spacing:.04em}
+.foot-bar{max-width:1200px;margin:48px auto 0;padding:24px 32px 0;border-top:1px solid var(--n-700);display:flex;justify-content:space-between;font-size:11px;color:var(--n-400);letter-spacing:.08em}
+.pill{padding:10px 22px;border-radius:999px;font-size:13px;letter-spacing:.06em;border:1px solid var(--border);background:transparent;color:var(--fg-2);cursor:pointer;transition:all .26s var(--ease-out);font-family:inherit}
+.pill.active, .pill:hover{background:var(--sage-700);color:#fff;border-color:var(--sage-700)}
+.filt-g{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 0 56px;border-bottom:1px solid var(--border)}
+
+.rep{padding:48px 0;border-bottom:1px solid var(--border)}
+.rep:last-of-type{border-bottom:0}
+.rep-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:24px;flex-wrap:wrap}
+.rep-no{font-family:var(--font-latin);font-size:11px;letter-spacing:.24em;color:var(--sea-500);text-transform:uppercase;margin-bottom:8px}
+.rep-name{font-family:var(--font-serif);font-weight:300;font-size:32px;letter-spacing:.08em;margin:0;color:var(--fg-1)}
+.dl-btn{padding:12px 24px;border-radius:999px;background:transparent;border:1px solid var(--border-strong);color:var(--fg-1);font-size:12px;letter-spacing:.12em;cursor:pointer;font-family:inherit;transition:all .26s var(--ease-out)}
+.dl-btn:hover{background:var(--sage-700);color:#fff;border-color:var(--sage-700)}
+.rep-table{width:100%;border-collapse:collapse;font-size:13px}
+.rep-table th{text-align:left;padding:14px 16px;font-size:11px;letter-spacing:.18em;color:var(--fg-3);text-transform:uppercase;background:var(--bg-soft);font-weight:500;border-bottom:1px solid var(--border)}
+.rep-table td{padding:18px 16px;border-bottom:1px solid var(--border);color:var(--fg-2);letter-spacing:.04em}
+.rep-table td.ok{color:var(--sage-700);font-weight:500}
+.rep-table tr:last-child td{border-bottom:0}
+.summary{padding:48px;background:var(--sage-50);border-radius:4px;margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
+.s-item .num{font-family:var(--font-serif);font-weight:300;font-size:42px;color:var(--sage-700);letter-spacing:.04em;margin-bottom:8px}
+.s-item .lbl{font-size:12px;letter-spacing:.16em;color:var(--fg-2);text-transform:uppercase}
+.empty-rep{display:none;text-align:center;padding:80px 0;font-size:14px;color:var(--fg-3);letter-spacing:.08em}
+
+@media (max-width:900px){
+  .wrap,.narrow{padding:0 20px}
+  .nav{padding:14px 20px;gap:14px}
+  header nav{display:none}
+  .logo img{height:32px}
+  .logo .zh{font-size:18px}
+  .icon-btn{width:36px;height:36px}
+  .intro{padding:88px 0 40px}
+  h1.title{font-size:36px;line-height:1.45}
+  .lede{font-size:14px;line-height:1.9}
+  .body{padding:32px 0 72px}
+  .filt-g{justify-content:flex-start;padding-bottom:34px}
+  .pill{padding:9px 16px;font-size:12px}
+  .rep{padding:36px 0}
+  .rep-head{align-items:flex-start;gap:18px;margin-bottom:22px}
+  .rep-name{font-size:26px;line-height:1.45}
+  .dl-btn{width:100%}
+  .rep-table{display:block;overflow-x:auto;white-space:nowrap}
+  .summary{grid-template-columns:1fr;padding:34px 24px;gap:24px}
+  .s-item .num{font-size:34px}
+}
+
+/* Mobile footer compact layout */
+@media (max-width:700px){
+  .foot{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px 12px!important;padding:0 24px!important}
+  .foot>div:first-child{grid-column:1/-1}
+  .foot h4{margin-bottom:12px}
+  .foot a{font-size:12px;padding:4px 0}
+  .foot-bar{display:block!important;padding:20px 24px 0!important;line-height:1.8}
+}
+
+/* Mobile hamburger menu */
+.menu-toggle{display:none}
+@media (max-width:900px){
+  header .nav{position:relative;gap:10px;flex-wrap:wrap;align-items:center}
+  .menu-toggle{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+  .menu-toggle:hover{background:var(--bg-soft);color:var(--fg-1)}
+  header nav{display:none!important;order:10;flex:0 0 100%;width:100%;grid-template-columns:1fr;gap:0;padding:10px 0 4px;border-top:1px solid var(--border);margin-top:4px}
+  header .nav.menu-open nav{display:grid!important}
+  header nav a{display:block;padding:12px 18px;font-size:14px;white-space:nowrap;border-bottom:1px solid var(--border)}
+  header nav a.active{border-bottom-color:var(--sage-500)}
+}
+</style></head><body>
+<header>
+<div class="nav">
+<a class="logo" href="index.html"><img src="./assets/mark.png" alt=""><div><div class="zh">沐研萃</div><div class="en">MUYANCUI</div></div></a>
+<nav>
+<a href="index.html">首頁</a>
+<a href="shop.html">全部商品</a>
+<a href="care.html">照護指南</a>
+<a href="about.html" class="active">品牌故事</a>
+<a href="factory.html">工廠環境</a>
+<a href="contact.html">聯絡我們</a>
+<a href="faq.html">常見問題</a>
+</nav>
+<div class="grow"></div><button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button>
+<a class="icon-btn" href="search.html" aria-label="搜尋"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
+<a class="icon-btn" href="member.html" aria-label="會員"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+<a class="icon-btn" href="cart.html" aria-label="購物車"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></a>
+</div>
+</header>
+<section class="intro"><div class="narrow">
+<div class="eyebrow">LAB REPORTS · 檢驗報告</div>
+<h1 class="title">每一支配方<br>都通過 SGS 第三方檢驗。</h1>
+<p class="lede">重金屬、微生物、過敏原、營養成分宣稱，每批送驗，報告全公開。</p>
+</div></section>
+<section class="body"><div class="narrow">
+<div class="filt-g">
+<button class="pill active" data-rep="all">全部</button>
+<button class="pill" data-rep="standard">均衡</button>
+<button class="pill" data-rep="diabetic">糖尿病</button>
+<button class="pill" data-rep="renal">腎臟</button>
+<button class="pill" data-rep="protein">高蛋白</button>
+<button class="pill" data-rep="fiber">纖維</button>
+<button class="pill" data-rep="fortified">營養加強</button>
+</div>
+
+<section class="rep" data-sku="standard">
+<div class="rep-head">
+<div class="rep-no">01 · STANDARD</div>
+<h3 class="rep-name">均衡配方</h3>
+<button class="dl-btn" onclick="alert('PDF 報告檔案尚未上傳，部署時再放入 wp-content/uploads/lab-reports/')">下載完整報告 PDF →</button>
+</div>
+<table class="rep-table">
+<thead><tr><th>檢驗項目</th><th>結果</th><th>檢驗日期</th><th>檢驗單位</th></tr></thead>
+<tbody>
+<tr><td>重金屬檢驗（鉛、鎘、汞、砷）</td><td class="ok">未檢出</td><td>2026.03.12</td><td>SGS 台灣檢驗科技</td></tr><tr><td>微生物檢驗（總生菌、大腸桿菌）</td><td class="ok">符合</td><td>2026.03.05</td><td>SGS 台灣檢驗科技</td></tr><tr><td>過敏原檢驗</td><td class="ok">未檢出</td><td>2026.02.28</td><td>SGS 台灣檢驗科技</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="rep" data-sku="diabetic">
+<div class="rep-head">
+<div class="rep-no">02 · DIABETIC</div>
+<h3 class="rep-name">糖尿病專用</h3>
+<button class="dl-btn" onclick="alert('PDF 報告檔案尚未上傳，部署時再放入 wp-content/uploads/lab-reports/')">下載完整報告 PDF →</button>
+</div>
+<table class="rep-table">
+<thead><tr><th>檢驗項目</th><th>結果</th><th>檢驗日期</th><th>檢驗單位</th></tr></thead>
+<tbody>
+<tr><td>升糖指數 GI 值</td><td class="ok">GI 35（低升糖）</td><td>2026.02.20</td><td>臺大食品科技研究所</td></tr><tr><td>重金屬檢驗</td><td class="ok">未檢出</td><td>2026.03.12</td><td>SGS 台灣檢驗科技</td></tr><tr><td>微生物檢驗</td><td class="ok">符合</td><td>2026.03.05</td><td>SGS 台灣檢驗科技</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="rep" data-sku="renal">
+<div class="rep-head">
+<div class="rep-no">03 · RENAL</div>
+<h3 class="rep-name">腎臟配方</h3>
+<button class="dl-btn" onclick="alert('PDF 報告檔案尚未上傳，部署時再放入 wp-content/uploads/lab-reports/')">下載完整報告 PDF →</button>
+</div>
+<table class="rep-table">
+<thead><tr><th>檢驗項目</th><th>結果</th><th>檢驗日期</th><th>檢驗單位</th></tr></thead>
+<tbody>
+<tr><td>磷含量檢驗</td><td class="ok">80mg / 250kcal</td><td>2026.02.18</td><td>食品工業發展研究所</td></tr><tr><td>鉀含量檢驗</td><td class="ok">95mg / 250kcal</td><td>2026.02.18</td><td>食品工業發展研究所</td></tr><tr><td>重金屬檢驗</td><td class="ok">未檢出</td><td>2026.03.12</td><td>SGS 台灣檢驗科技</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="rep" data-sku="protein">
+<div class="rep-head">
+<div class="rep-no">04 · PROTEIN</div>
+<h3 class="rep-name">高蛋白配方</h3>
+<button class="dl-btn" onclick="alert('PDF 報告檔案尚未上傳，部署時再放入 wp-content/uploads/lab-reports/')">下載完整報告 PDF →</button>
+</div>
+<table class="rep-table">
+<thead><tr><th>檢驗項目</th><th>結果</th><th>檢驗日期</th><th>檢驗單位</th></tr></thead>
+<tbody>
+<tr><td>蛋白質含量</td><td class="ok">20.2g / 包</td><td>2026.03.01</td><td>SGS 台灣檢驗科技</td></tr><tr><td>BCAA 支鏈胺基酸含量</td><td class="ok">符合宣稱</td><td>2026.03.01</td><td>SGS 台灣檢驗科技</td></tr><tr><td>重金屬檢驗</td><td class="ok">未檢出</td><td>2026.03.12</td><td>SGS 台灣檢驗科技</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="rep" data-sku="fiber">
+<div class="rep-head">
+<div class="rep-no">05 · FIBER</div>
+<h3 class="rep-name">纖維加強</h3>
+<button class="dl-btn" onclick="alert('PDF 報告檔案尚未上傳，部署時再放入 wp-content/uploads/lab-reports/')">下載完整報告 PDF →</button>
+</div>
+<table class="rep-table">
+<thead><tr><th>檢驗項目</th><th>結果</th><th>檢驗日期</th><th>檢驗單位</th></tr></thead>
+<tbody>
+<tr><td>膳食纖維含量</td><td class="ok">12.4g / 包</td><td>2026.02.25</td><td>食品工業發展研究所</td></tr><tr><td>果寡糖 FOS 含量</td><td class="ok">符合宣稱</td><td>2026.02.25</td><td>食品工業發展研究所</td></tr><tr><td>微生物檢驗</td><td class="ok">符合</td><td>2026.03.05</td><td>SGS 台灣檢驗科技</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="rep" data-sku="fortified">
+<div class="rep-head">
+<div class="rep-no">06 · FORTIFIED</div>
+<h3 class="rep-name">營養加強</h3>
+<button class="dl-btn" onclick="alert('PDF 報告檔案尚未上傳，部署時再放入 wp-content/uploads/lab-reports/')">下載完整報告 PDF →</button>
+</div>
+<table class="rep-table">
+<thead><tr><th>檢驗項目</th><th>結果</th><th>檢驗日期</th><th>檢驗單位</th></tr></thead>
+<tbody>
+<tr><td>熱量密度</td><td class="ok">1.5 kcal/ml</td><td>2026.03.08</td><td>食品工業發展研究所</td></tr><tr><td>維生素 D 含量</td><td class="ok">符合宣稱</td><td>2026.03.08</td><td>食品工業發展研究所</td></tr><tr><td>重金屬檢驗</td><td class="ok">未檢出</td><td>2026.03.12</td><td>SGS 台灣檢驗科技</td></tr>
+</tbody>
+</table>
+</section>
+<div class="empty-rep" id="empty-rep">此商品尚無報告</div>
+<div class="summary">
+<div class="s-item"><div class="num">100%</div><div class="lbl">每批送驗</div></div>
+<div class="s-item"><div class="num">3</div><div class="lbl">第三方公正單位</div></div>
+<div class="s-item"><div class="num">0</div><div class="lbl">防腐劑添加</div></div>
+</div>
+</div></section>
+<footer>
+<div class="foot">
+<div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+<img src="./assets/mark.png" style="width:40px;filter:brightness(0) invert(1)">
+<div><div style="font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;letter-spacing:.12em">沐研萃</div><div style="font-size:9px;letter-spacing:.2em;color:var(--n-400);margin-top:4px">MUYANCUI · CLINICAL NUTRITION</div></div>
+</div>
+<div style="font-size:13px;color:var(--n-300);line-height:1.9;letter-spacing:.04em">昱文食品有限公司<br>雲林縣麥寮鄉 · Made in Taiwan</div>
+<div class="foot-note">※ 本網站所有商品皆為營養補充食品，不具療效宣稱。使用前請諮詢醫師或營養師。</div>
+</div>
+<div><h4>商品</h4><a href="product-standard.html">均衡配方</a><a href="product-diabetic.html">糖尿病專用</a><a href="product-renal.html">腎臟配方</a><a href="product-protein.html">高蛋白配方</a><a href="product-fiber.html">纖維加強</a><a href="product-fortified.html">營養加強</a></div>
+<div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a><a href="factory.html">工廠環境</a></div>
+<div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="repay.html">補付款</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
+</div>
+<div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.1</div></div>
+</footer>
+<script>
+(function(){
+  const pills=document.querySelectorAll('.pill[data-rep]');
+  const reps=document.querySelectorAll('.rep[data-sku]');
+  const empty=document.getElementById('empty-rep');
+  pills.forEach(p=>p.addEventListener('click',()=>{
+    pills.forEach(x=>x.classList.remove('active'));
+    p.classList.add('active');
+    const f=p.dataset.rep;let v=0;
+    reps.forEach(r=>{const s=f==='all'||r.dataset.sku===f;r.style.display=s?'':'none';if(s)v++;});
+    empty.style.display=v===0?'block':'none';
+  }));
+})();
+</script>
+<script>
+document.querySelectorAll('.menu-toggle').forEach(btn=>{btn.addEventListener('click',()=>{const nav=btn.closest('.nav');const open=nav.classList.toggle('menu-open');btn.setAttribute('aria-expanded',open?'true':'false');});});
+</script>
+</body></html>

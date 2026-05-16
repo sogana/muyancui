@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#f7f5ee"/>
+  <rect x="84" y="78" width="732" height="524" rx="8" fill="#fff" stroke="#e0dcce"/>
+  <rect x="154" y="142" width="170" height="230" rx="14" fill="#eaf1f5" stroke="#c9dbe4"/>
+  <path d="M190 188h98v86c0 28-22 50-49 50s-49-22-49-50z" fill="#fff" stroke="#7ba4b9" stroke-width="3"/>
+  <path d="M239 324v122c0 34 28 62 62 62h238" fill="none" stroke="#2f6a82" stroke-width="12" stroke-linecap="round"/>
+  <rect x="520" y="420" width="198" height="112" rx="56" fill="#eef3ef" stroke="#b8ccbd"/>
+  <circle cx="578" cy="476" r="28" fill="#6b8e7f"/>
+  <circle cx="660" cy="476" r="28" fill="#95b19d"/>
+  <text x="388" y="162" font-family="Noto Serif TC, serif" font-size="34" fill="#14120e" letter-spacing="3">居家管灌使用示意</text>
+  <text x="388" y="204" font-family="Noto Sans TC, sans-serif" font-size="18" fill="#555043">搭配灌食袋或空針，依醫囑速度進行。</text>
+  <g font-family="Noto Sans TC, sans-serif" font-size="17" fill="#3a362b">
+    <circle cx="392" cy="278" r="18" fill="#6b8e7f"/><text x="392" y="284" text-anchor="middle" fill="#fff">1</text><text x="426" y="284">確認管路位置</text>
+    <circle cx="392" cy="334" r="18" fill="#6b8e7f"/><text x="392" y="340" text-anchor="middle" fill="#fff">2</text><text x="426" y="340">採半坐臥 30–45 度</text>
+    <circle cx="392" cy="390" r="18" fill="#6b8e7f"/><text x="392" y="396" text-anchor="middle" fill="#fff">3</text><text x="426" y="396">200ml 約 15–20 分鐘</text>
+    <circle cx="392" cy="446" r="18" fill="#6b8e7f"/><text x="392" y="452" text-anchor="middle" fill="#fff">4</text><text x="426" y="452">餐後以溫開水沖管</text>
+  </g>
+  <text x="154" y="560" font-family="Noto Sans TC, sans-serif" font-size="15" fill="#7a7565">※ 圖片為操作情境示意，實際請依醫師、營養師或居家護理師指示。</text>
+</svg>

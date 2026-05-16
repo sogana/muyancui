@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#fcfbf8"/>
+  <rect x="108" y="126" width="684" height="412" rx="12" fill="#fff" stroke="#e0dcce"/>
+  <path d="M108 232h684" stroke="#e0dcce" stroke-width="3"/>
+  <path d="M274 126l64 106h224l64-106" fill="#f7f5ee" stroke="#e0dcce" stroke-width="3"/>
+  <rect x="188" y="292" width="160" height="176" rx="8" fill="#eef3ef" stroke="#b8ccbd"/>
+  <rect x="370" y="292" width="160" height="176" rx="8" fill="#eaf1f5" stroke="#c9dbe4"/>
+  <rect x="552" y="292" width="160" height="176" rx="8" fill="#eef3ef" stroke="#b8ccbd"/>
+  <text x="268" y="376" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="26" fill="#14120e" letter-spacing="4">沐研萃</text>
+  <text x="450" y="376" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="26" fill="#14120e" letter-spacing="4">沐研萃</text>
+  <text x="632" y="376" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="26" fill="#14120e" letter-spacing="4">沐研萃</text>
+  <rect x="300" y="564" width="300" height="36" rx="18" fill="#3f5649"/>
+  <text x="450" y="587" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="16" fill="#fff" letter-spacing="3">冷鏈宅配 · 48 小時到府</text>
+  <text x="450" y="86" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="34" fill="#14120e" letter-spacing="4">安心包裝示意</text>
+  <text x="450" y="632" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="16" fill="#7a7565">保護包材、冰寶與外箱配置為示意，實際依出貨商品調整。</text>
+</svg>

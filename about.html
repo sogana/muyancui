@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>品牌故事 · 沐研萃 Muyancui</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:var(--font-sans);color:var(--fg-1);font-weight:300}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+  .narrow{max-width:760px;margin:0 auto;padding:0 32px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:10;background:rgba(252,251,248,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  .nav{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;gap:32px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo img{height:36px}
+  .logo .zh{font-family:var(--font-serif);font-weight:400;font-size:20px;color:var(--fg-1);letter-spacing:.12em;line-height:1}
+  .logo .en{font-size:9px;letter-spacing:.2em;color:var(--fg-3);margin-top:4px;font-family:var(--font-latin)}
+  nav{display:flex;gap:6px}
+  nav a{padding:8px 16px;font-size:14px;color:var(--fg-2);text-decoration:none;letter-spacing:.06em}
+  nav a.active{color:var(--fg-1);font-weight:500;border-bottom:1px solid var(--sage-500)}
+  .grow{flex:1}
+  .icon-btn{width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+
+  /* Page intro — 大量留白、單欄、極簡 */
+  .intro{padding:160px 0 96px;text-align:center}
+  .eyebrow{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sea-500);margin-bottom:28px}
+  h1.title{font-family:var(--font-serif);font-weight:300;font-size:56px;line-height:1.4;letter-spacing:.08em;margin:0 0 32px;color:var(--fg-1)}
+  .lede{font-size:16px;color:var(--fg-2);line-height:2.2;font-weight:300;max-width:560px;margin:0 auto;letter-spacing:.04em}
+
+  /* Origin story — 兩欄圖文 */
+  .origin{padding:120px 0;border-top:1px solid var(--border)}
+  .origin-g{display:grid;grid-template-columns:1fr 1.1fr;gap:96px;align-items:center}
+  .origin-img{aspect-ratio:4/5;background:var(--bg-soft);border-radius:4px;display:flex;align-items:flex-end;justify-content:flex-end;padding:32px;color:var(--fg-4);font-size:11px;letter-spacing:.16em}
+  .origin h2{font-family:var(--font-serif);font-weight:300;font-size:36px;line-height:1.6;letter-spacing:.08em;margin:24px 0 32px;color:var(--fg-1)}
+  .origin p{font-size:15px;line-height:2.1;color:var(--fg-2);font-weight:300;margin:0 0 22px;letter-spacing:.03em}
+  .origin .sig{margin-top:40px;font-family:var(--font-serif);font-size:18px;color:var(--fg-1);letter-spacing:.08em}
+  .origin .sig small{display:block;font-family:var(--font-sans);font-size:11px;color:var(--fg-3);letter-spacing:.18em;margin-top:6px;text-transform:uppercase}
+
+  /* Promise — 四個核心承諾 */
+  .promise{padding:120px 0;background:var(--bg-soft)}
+  .sec-head{text-align:center;margin-bottom:80px}
+  .sec-head h2{font-family:var(--font-serif);font-weight:300;font-size:40px;letter-spacing:.08em;margin:16px 0 14px;color:var(--fg-1)}
+  .sec-head .sub{font-size:14px;color:var(--fg-3);letter-spacing:.04em;line-height:2}
+  .promise-g{display:grid;grid-template-columns:repeat(2,1fr);gap:64px}
+  .pi{display:flex;gap:24px;align-items:flex-start}
+  .pi .num{font-family:var(--font-latin);font-size:11px;letter-spacing:.2em;color:var(--sea-500);padding-top:6px;flex:0 0 36px}
+  .pi h3{font-family:var(--font-serif);font-weight:400;font-size:22px;letter-spacing:.08em;margin:0 0 14px;color:var(--fg-1)}
+  .pi p{font-size:14px;line-height:2;color:var(--fg-2);margin:0;font-weight:300}
+
+  /* Process timeline — 從原料到家中 */
+  .process{padding:120px 0}
+  .timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:64px;position:relative}
+  .timeline::before{content:'';position:absolute;left:7%;right:7%;top:18px;height:1px;background:var(--border)}
+  .step{text-align:center;position:relative}
+  .step .dot{width:36px;height:36px;border-radius:999px;background:#fff;border:1px solid var(--sage-500);color:var(--sage-600);font-family:var(--font-latin);font-size:12px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;letter-spacing:.04em;position:relative;z-index:1}
+  .step h4{font-family:var(--font-serif);font-weight:400;font-size:16px;letter-spacing:.1em;margin:18px 0 8px;color:var(--fg-1)}
+  .step p{font-size:12px;line-height:1.9;color:var(--fg-3);margin:0;font-weight:300;letter-spacing:.04em}
+
+  /* Numbers strip — 雲林麥寮工廠數據 */
+  .numbers{padding:96px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#fff}
+  .num-g{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+  .num-i{text-align:center}
+  .num-i .big{font-family:var(--font-serif);font-weight:300;font-size:56px;color:var(--sage-600);letter-spacing:.04em;line-height:1}
+  .num-i .big sup{font-size:18px;font-weight:400;margin-left:4px}
+  .num-i .lbl{font-size:11px;color:var(--fg-3);letter-spacing:.2em;text-transform:uppercase;margin-top:14px}
+
+  /* Cert & lab */
+  .cert{padding:120px 0;background:var(--sage-700);color:#fff}
+  .cert .sec-head h2{color:#fff}
+  .cert .sec-head .sub{color:rgba(255,255,255,.7)}
+  .cert-g{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px}
+  .cert-i{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:36px 24px;text-align:center}
+  .cert-i .badge{width:60px;height:60px;border-radius:999px;background:rgba(255,255,255,.1);display:inline-flex;align-items:center;justify-content:center;color:#fff;margin-bottom:20px}
+  .cert-i b{font-family:var(--font-serif);font-weight:400;font-size:18px;display:block;letter-spacing:.08em;color:#fff}
+  .cert-i span{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.12em;margin-top:8px;display:block}
+
+  /* Facility — 工廠 / 實驗室 / 配送 三圖區 */
+  .facility{padding:120px 0;background:var(--bg-soft)}
+  .fac-g{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}
+  .fac-i{display:flex;flex-direction:column;gap:14px}
+  .fac-i .img{aspect-ratio:4/5;background:var(--n-100);background-size:cover;background-position:center;border-radius:4px}
+  .fac-i .cat{font-family:var(--font-latin);font-size:11px;letter-spacing:.2em;color:var(--sea-500);text-transform:uppercase;margin-top:8px}
+  .fac-i h4{font-family:var(--font-serif);font-weight:400;font-size:20px;letter-spacing:.08em;margin:4px 0 8px;color:var(--fg-1)}
+  .fac-i p{font-size:13px;line-height:1.9;color:var(--fg-2);margin:0;font-weight:300}
+
+  /* Quote */
+  .quote{padding:140px 0;text-align:center}
+  .quote .qmark{font-family:var(--font-serif);font-size:64px;color:var(--sage-300);line-height:1;margin-bottom:8px}
+  .quote p{font-family:var(--font-serif);font-size:28px;font-weight:300;line-height:1.9;letter-spacing:.08em;margin:0 auto;max-width:760px;color:var(--fg-1)}
+  .quote cite{display:block;font-style:normal;font-size:11px;letter-spacing:.24em;color:var(--fg-3);margin-top:32px;text-transform:uppercase}
+
+  /* CTA */
+  .cta{padding:120px 0;text-align:center;border-top:1px solid var(--border)}
+  .cta h2{font-family:var(--font-serif);font-weight:300;font-size:40px;letter-spacing:.08em;margin:0 0 24px;color:var(--fg-1)}
+  .cta p{font-size:14px;color:var(--fg-2);margin:0 0 40px;letter-spacing:.04em}
+  .btn{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 32px;border-radius:999px;font-size:14px;font-weight:400;cursor:pointer;border:1px solid transparent;text-decoration:none;letter-spacing:.1em;transition:all .26s var(--ease-out)}
+  .btn-p{background:var(--sage-500);color:#fff}
+  .btn-p:hover{background:var(--sage-600);transform:translateY(-1px);box-shadow:var(--shadow-brand)}
+  .btn-s{background:transparent;color:var(--fg-1);border-color:var(--border-strong);margin-left:12px}
+  .btn-s:hover{border-color:var(--fg-1)}
+
+  /* Footer */
+  footer{background:var(--n-900);color:var(--n-300);padding:80px 0 40px}
+  .foot{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+  .foot h4{font-size:11px;letter-spacing:.2em;color:#fff;margin:0 0 18px;font-weight:500;text-transform:uppercase}
+  .foot a{display:block;font-size:13px;color:var(--n-300);text-decoration:none;padding:5px 0;letter-spacing:.04em}
+  .foot-note{font-size:11px;color:var(--n-400);line-height:1.9;max-width:340px;margin-top:14px;letter-spacing:.04em}
+  .foot-bar{max-width:1200px;margin:48px auto 0;padding:24px 32px 0;border-top:1px solid var(--n-700);display:flex;justify-content:space-between;font-size:11px;color:var(--n-400);letter-spacing:.08em}
+
+/* Mobile footer compact layout */
+@media (max-width:700px){
+  .foot{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px 12px!important;padding:0 24px!important}
+  .foot>div:first-child{grid-column:1/-1}
+  .foot h4{margin-bottom:12px}
+  .foot a{font-size:12px;padding:4px 0}
+  .foot-bar{display:block!important;padding:20px 24px 0!important;line-height:1.8}
+}
+
+/* Mobile layout */
+@media (max-width:900px){
+  .wrap,.narrow{padding:0 20px}
+  .nav{padding:14px 20px;gap:14px}
+  header nav{display:none}
+  .logo img{height:32px}
+  .logo .zh{font-size:18px}
+  .icon-btn{width:36px;height:36px}
+
+  .intro{padding:88px 0 56px}
+  .eyebrow{font-size:10px;letter-spacing:.2em;margin-bottom:18px}
+  h1.title{font-size:36px;line-height:1.45;letter-spacing:.04em;margin-bottom:22px}
+  .lede{font-size:14px;line-height:1.95;max-width:none}
+
+  .origin,.promise,.process,.cert,.facility,.cta{padding:72px 0}
+  .origin-g{grid-template-columns:1fr;gap:36px}
+  .origin-img{aspect-ratio:4/3;min-height:240px;order:1}
+  .origin-g>div:last-child{order:2}
+  .origin h2{font-size:26px;line-height:1.55;letter-spacing:.04em;margin:16px 0 22px}
+  .origin p{font-size:14px;line-height:2;margin-bottom:16px}
+  .origin .sig{margin-top:26px}
+
+  .sec-head{margin-bottom:40px}
+  .sec-head h2{font-size:30px;line-height:1.45;letter-spacing:.04em}
+  .sec-head .sub{font-size:13px;line-height:1.8}
+
+  .promise-g{grid-template-columns:1fr;gap:28px}
+  .pi{gap:16px}
+  .pi .num{flex-basis:30px}
+  .pi h3{font-size:20px;margin-bottom:10px}
+  .pi p{font-size:13px;line-height:1.9}
+
+  .timeline{grid-template-columns:1fr;gap:24px;margin-top:42px}
+  .timeline::before{left:18px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .step{text-align:left;display:grid;grid-template-columns:36px 1fr;gap:0 18px;align-items:start}
+  .step .dot{grid-row:1 / span 2}
+  .step h4{margin:4px 0 6px;font-size:17px}
+  .step p{font-size:13px;line-height:1.8}
+
+  .numbers{padding:56px 0}
+  .num-g{grid-template-columns:repeat(2,1fr);gap:32px 18px}
+  .num-i .big{font-size:42px}
+  .num-i .lbl{font-size:10px;letter-spacing:.12em;line-height:1.6}
+
+  .cert-g{grid-template-columns:repeat(2,1fr);gap:16px;margin-top:36px}
+  .cert-i{padding:24px 14px}
+  .cert-i .badge{width:48px;height:48px;margin-bottom:14px}
+  .cert-i b{font-size:16px}
+
+  .fac-g{grid-template-columns:1fr;gap:34px;margin-top:40px}
+  .fac-i .img{aspect-ratio:4/3}
+
+  .quote{padding:72px 0}
+  .quote .qmark{font-size:44px}
+  .quote p{font-size:22px;line-height:1.8;letter-spacing:.04em}
+
+  .cta h2{font-size:30px;line-height:1.45;letter-spacing:.04em}
+  .cta p{line-height:1.8;margin-bottom:28px}
+  .cta .btn{width:100%;justify-content:center;margin:0 0 12px;height:48px}
+  .cta .btn-s{margin-left:0}
+}
+
+@media (max-width:420px){
+  .wrap,.narrow{padding:0 18px}
+  h1.title{font-size:32px}
+  .num-g,.cert-g{grid-template-columns:1fr}
+}
+
+/* Mobile hamburger menu */
+.menu-toggle{display:none}
+@media (max-width:900px){
+  header .nav{position:relative;gap:10px;flex-wrap:wrap;align-items:center}
+  .menu-toggle{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:var(--fg-2)}
+  .menu-toggle:hover{background:var(--bg-soft);color:var(--fg-1)}
+  header nav{display:none!important;order:10;flex:0 0 100%;width:100%;grid-template-columns:1fr;gap:0;padding:10px 0 4px;border-top:1px solid var(--border);margin-top:4px}
+  header .nav.menu-open nav{display:grid!important}
+  header nav a{display:block;padding:12px 18px;font-size:14px;white-space:nowrap;border-bottom:1px solid var(--border)}
+  header nav a.active{border-bottom-color:var(--sage-500)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">
+      <img src="./assets/mark.png" alt="">
+      <div>
+        <div class="zh">沐研萃</div>
+        <div class="en">MUYANCUI</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="shop.html">全部商品</a>
+      <a href="care.html">照護指南</a>
+      <a href="about.html" class="active">品牌故事</a>
+      <a href="factory.html">工廠環境</a><a href="contact.html">聯絡我們</a><a href="faq.html">常見問題</a>
+    </nav>
+    <div class="grow"></div><button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button>
+    <a class="icon-btn" href="search.html" aria-label="搜尋"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
+    <a class="icon-btn" href="member.html" aria-label="會員"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+    <a class="icon-btn" href="cart.html" aria-label="購物車"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="narrow">
+    <div class="eyebrow">OUR STORY · 品牌故事</div>
+    <h1 class="title">以科學的研萃，<br>溫柔滋養家人。</h1>
+    <p class="lede">沐研萃，源自一段照顧家人的真實故事。我們相信，營養補充不該只是冰冷的醫療品項，而是能陪伴家屬一起照顧的日常選擇。</p>
+  </div>
+</section>
+
+<section class="origin">
+  <div class="wrap origin-g">
+    <div class="origin-img" style="background-image:url(./assets/photos/founder-factory.png);background-size:cover;background-position:center"></div>
+    <div>
+      <div class="eyebrow">ORIGIN · 起點</div>
+      <h2>「爸爸中風那年，我找不到一款能放心餵的營養品。」</h2>
+      <p>2018 年，創辦人的父親因中風住進加護病房，從鼻胃管灌食開始，到回家由家人輪流照顧。當時市場上的選擇不多——進口品昂貴難買、本地品牌資訊不透明，連最基本的原料履歷都找不到。</p>
+      <p>那一年，我們翻遍了食品法規、跑遍醫院營養諮詢室，向營養師、護理師、長照家屬請教每一個細節。我們發現，台灣家屬最需要的不是行銷話術，而是「看得懂的食材、查得到的檢驗、敢餵的安心」。</p>
+      <p>於是我們決定，把母公司昱文食品在嬰幼兒副食品累積十年的食安標準，延伸到家人最需要照顧的另一端——銀髮、術後、長照。</p>
+      <div class="sig">— 昱宏<small>創辦人 · 沐研萃</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">OUR PROMISE · 四個承諾</div>
+      <h2>我們對家屬的承諾</h2>
+      <div class="sub">不是宣言，是每一批配方都會做到的標準。</div>
+    </div>
+    <div class="promise-g">
+      <div class="pi"><div class="num">01</div><div><h3>看得懂的食材</h3><p>每支配方公開完整原料表，包含每一項的來源國、規格、添加目的。沒有「香料」「調味劑」這類模糊字眼。</p></div></div>
+      <div class="pi"><div class="num">02</div><div><h3>查得到的檢驗</h3><p>每一批產品送 SGS 第三方檢驗，重金屬、塑化劑、微生物完整公開。檢驗報告隨時可在網站下載。</p></div></div>
+      <div class="pi"><div class="num">03</div><div><h3>敢餵的營養</h3><p>所有配方經臨床營養師審核，符合台灣衛福部「特殊營養食品」標準。標示誠實，不誇大宣稱。</p></div></div>
+      <div class="pi"><div class="num">04</div><div><h3>陪伴的服務</h3><p>免付費營養師諮詢專線，由具實務經驗的執業營養師回覆。不只賣產品，陪您一起照顧家人。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">PROCESS · 製程</div>
+      <h2>從一粒原料，到您家中的廚房</h2>
+      <div class="sub">五個關鍵環節，每一步皆可追溯。</div>
+    </div>
+    <div class="timeline">
+      <div class="step"><div class="dot">01</div><h4>原料採購</h4><p>篩選具國際認證之原料供應商，每批附原產地證明。</p></div>
+      <div class="step"><div class="dot">02</div><h4>檢驗入廠</h4><p>進廠前送驗，重金屬、農藥、微生物三項必過。</p></div>
+      <div class="step"><div class="dot">03</div><h4>調配製造</h4><p>雲林麥寮自家工廠，LT3000 自動化包裝線無菌操作。</p></div>
+      <div class="step"><div class="dot">04</div><h4>SGS 抽檢</h4><p>每批成品送 SGS 第三方檢驗，報告隨產品公開。</p></div>
+      <div class="step"><div class="dot">05</div><h4>冷鏈宅配</h4><p>黑貓低溫宅配，48 小時內到府，保留新鮮。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="wrap num-g">
+    <div class="num-i"><div class="big">10<sup>+</sup></div><div class="lbl">YEARS · 食品製造經驗</div></div>
+    <div class="num-i"><div class="big">100<sup>%</sup></div><div class="lbl">SGS 每批檢驗</div></div>
+    <div class="num-i"><div class="big">6</div><div class="lbl">CARE FORMULAS · 配方</div></div>
+    <div class="num-i"><div class="big">48<sup>h</sup></div><div class="lbl">DELIVERY · 冷鏈到府</div></div>
+  </div>
+</section>
+
+<section class="cert">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" style="color:var(--sage-200)">CERTIFICATIONS · 認證與檢驗</div>
+      <h2>我們相信的，要拿得出證明</h2>
+      <div class="sub">所有檢驗報告均可於官網下載查閱。</div>
+    </div>
+    <div class="cert-g">
+      <div class="cert-i"><div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><b>SGS 檢驗</b><span>每批送驗</span></div>
+      <div class="cert-i"><div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><b>ISO 22000</b><span>食品安全管理</span></div>
+      <div class="cert-i"><div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg></div><b>HACCP</b><span>危害分析管制</span></div>
+      <div class="cert-i"><div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><b>TFDA</b><span>合法食品工廠</span></div>
+    </div>
+    <p style="margin-top:48px;font-size:11px;text-align:center;color:rgba(255,255,255,.5);letter-spacing:.12em">※ 認證徽章為占位示意，實際以工廠取得認證為準。</p>
+  </div>
+</section>
+
+<section class="facility">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">FACILITY · 製造與配送</div>
+      <h2>每一道環節，看得見的安心</h2>
+      <div class="sub">從自家工廠、第三方檢驗、到送達您家門口。</div>
+    </div>
+    <div class="fac-g">
+      <div class="fac-i">
+        <div class="img" style="background-image:url(./assets/photos/Aerial-Factory.png)"></div>
+        <div class="cat">FACTORY · 自家工廠</div>
+        <h4>雲林麥寮 · 沐研萃工廠</h4>
+        <p>位於雲林稻田中的小型現代化食品廠，自有產線負責全製程。</p>
+      </div>
+      <div class="fac-i">
+        <div class="img" style="background-image:url(./assets/photos/Testing-Laboratory.png)"></div>
+        <div class="cat">LAB · 第三方檢驗</div>
+        <h4>SGS 食品實驗室</h4>
+        <p>每一批成品送 SGS 公正第三方檢驗，重金屬、塑化劑、微生物完整公開。</p>
+      </div>
+      <div class="fac-i">
+        <div class="img" style="background-image:url(./assets/photos/Delivery-Packaging.png)"></div>
+        <div class="cat">DELIVERY · 冷鏈配送</div>
+        <h4>48 小時冷鏈到府</h4>
+        <p>低溫宅配 48 小時內到府，乾淨包裝、新鮮直送您的廚房。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="narrow">
+    <div class="qmark">"</div>
+    <p>照顧最重要的家人，<br>不該是孤單的事。</p>
+    <cite>— 沐研萃 · 品牌信念</cite>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="narrow">
+    <h2>從一支配方，<br>開始您的照顧旅程。</h2>
+    <p>所有商品為營養補充食品，使用前請諮詢醫師或營養師。</p>
+    <div>
+      <a class="btn btn-p" href="shop.html">查看全部商品</a>
+      <a class="btn btn-s" href="contact.html">聯絡營養師</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="./assets/mark.png" style="width:40px;filter:brightness(0) invert(1)">
+        <div>
+          <div style="font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;letter-spacing:.12em">沐研萃</div>
+          <div style="font-size:9px;letter-spacing:.2em;color:var(--n-400);margin-top:4px">MUYANCUI · CLINICAL NUTRITION</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--n-300);line-height:1.9;letter-spacing:.04em">昱文食品有限公司<br>雲林縣麥寮鄉 · Made in Taiwan</div>
+      <div class="foot-note">※ 本網站所有商品皆為營養補充食品，不具療效宣稱。使用前請諮詢醫師或營養師。</div>
+    </div>
+    <div><h4>商品</h4><a href="product-standard.html">均衡配方</a><a href="product-diabetic.html">糖尿病專用</a><a href="product-renal.html">腎臟配方</a><a href="product-protein.html">高蛋白配方</a><a href="product-fiber.html">纖維加強</a><a href="product-fortified.html">營養加強</a></div>
+    <div><h4>照護</h4><a href="care.html">照護指南</a><a href="column.html">營養師專欄</a><a href="faq.html">常見問題</a><a href="lab-reports.html">檢驗報告</a><a href="factory.html">工廠環境</a></div>
+    <div><h4>客服</h4><a href="order-status.html">訂單查詢</a><a href="repay.html">補付款</a><a href="shipping.html">配送說明</a><a href="returns.html">退換貨</a><a href="contact.html">聯絡我們</a></div>
+  </div>
+  <div class="foot-bar"><div>© 2026 昱文食品有限公司 · 沐研萃 MUYANCUI</div><div>v1.1</div></div>
+</footer>
+
+<script>
+document.querySelectorAll('.menu-toggle').forEach(btn=>{btn.addEventListener('click',()=>{const nav=btn.closest('.nav');const open=nav.classList.toggle('menu-open');btn.setAttribute('aria-expanded',open?'true':'false');});});
+</script>
+</body>
+</html>
